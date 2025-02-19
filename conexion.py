@@ -15,7 +15,6 @@ if conexion.is_connected():
 
 cursor = conexion.cursor()
 
-# Crear la tabla Cliente si no existe
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS Cliente (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -31,11 +30,9 @@ sql = "INSERT INTO Cliente (nombre, tipo, telefono, cargo) VALUES (%s, %s, %s, %
 
 # mis datos aleatorios
 datos = [
-    ("Juan Pérez", "Empresa", "3112345678", "Gerente de Compras"),
     ("María López", "Independiente", "3209876543", "Consultora"),
     ("Carlos Gómez", "Empresa", "3145678901", "Jefe de Logística"),
     ("Ana Martínez", "Gobierno", "3123456789", "Directora de Proyectos"),
-    ("Luis Ramírez", "Empresa", "3156789012", "Coordinador de Ventas"),
 ]
 
 cursor.executemany(sql, datos)
